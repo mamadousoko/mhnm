@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    {% block head %}
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+      <!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> -->
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+
+    </head>
+    {% endblock %}
+    <body>
+        <!-- START NAV -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="{{ path('app_admin_dashboard') }}">
+      <img src="{{ asset('images/mhnmpro_Nav.png') }}" >
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+     <div id="navMenu" class="navbar-menu">
+                <div class="navbar-start">
+  {% block navMenu %}
+  {% endblock %}
+                </div>
+            </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-end">
+      <div class="navbar-item">
+         <div class="container">             
+            <div class="dropdown">
+               <div class="dropdown-trigger">
+                  <button class="button"
+                          aria-haspopup="true"
+                          aria-controls="dropdown-menu">
+                     
+                     <img class="is-rounded" src="{{asset('images/undraw_profile.svg')}}">
+                     &nbsp;&nbsp;
+                     <span>{{app.user.nom}} {{app.user.prenom}}</span>
+                     <span class="icon is-small">
+                        <i class="fa fa-angle-down"
+                           aria-hidden="true"></i>
+                     </span>
+                     &nbsp;&nbsp;
+                  </button>
+               </div>
+               <div class="dropdown-menu"
+                    id="dropdown-menu"
+                    role="menu">
+                  <div class="dropdown-content">
+                     <a href="#" class="dropdown-item">
+                       Changer de projet
+                     </a>
+                     <hr class="dropdown-divider">
+                     <a href="/logout" class="dropdown-item">
+                       Se deconnecter
+                     </a>
+                  </div>
+               </div>
+            </div>
+            <script>            
+               document.addEventListener('DOMContentLoaded', function () {
+                
+                  var dropdown = document.querySelector('.dropdown');
+                  
+                  dropdown.addEventListener('click', function(event) {
+                     event.stopPropagation();
+                     dropdown.classList.toggle('is-active');
+                   });
+               });       
+            </script>
+         </div> 
+      </div>
+    </div>
+  </div>
+</nav>
+    <!-- END NAV -->
+     <div class="container">
+        <div class="columns">
+            <div class="column is-3 ">
+               <!-- SIDE MENU -->
+                <aside class="menu is-hidden-mobile" id="sideMenu">
+                    <p class="menu-label">
+                        Menu
+                    </p>
+                    <ul class="menu-list">
+                        <li><a class="sideMenuItem" id="sideMenuItem-0" href="{{path('app_admin_dashboard')}}">Dashboard</a></li>
+                    </ul>
+                  {#  {% if is_granted('ROLE_ADMIN') %} #}
+                    <p class="menu-label">
+                        Administration
+                    </p>
+                    <ul class="menu-list">
+                        <li><a class="sideMenuItem" id="sideMenuItem-1">Gestion Projet</a></li>
+                        <li><a class="sideMenuItem" id="sideMenuItem-2" href="{{ path('app_user_list') }}">Gestion Utilisateurs</a></li>
+                    </ul>
+                   {# {% endif %} #}
+                    <p class="menu-label">
+                        Coordination
+                    </p>
+                    <ul class="menu-list">
+                    <li><a class="sideMenuItem" id="sideMenuItem-3">Planning projet</a></li>
+                    <li><a class="sideMenuItem" id="sideMenuItem-4">Gestion Taches</a></li>
+                    <ul>
+                    <p class="menu-label">
+                        Finances
+                    </p>
+                    <ul class="menu-list">
+                        <li><a class="sideMenuItem"  id="sideMenuItem-5" href="{{ path('app_finance_depences') }}">Depenses</a></li>
+                        <li><a class="sideMenuItem"  id="sideMenuItem-6">Achats</a></li>
+                    </ul>
+                    <p class="menu-label">
+                       Espace Entreprenneur
+                    </p>
+                    <ul class="menu-list">
+                        <li><a class="sideMenuItem"  id="sideMenuItem-7">Stock</a></li>
+                        <li><a class="sideMenuItem"  id="sideMenuItem-8">Entrées</a></li>
+                        <li><a class="sideMenuItem" id="sideMenuItem-9">Sorties</a></li>
+                        <li><a class="sideMenuItem"  id="sideMenuItem-10">Main d'oeuvre</a></li>
+                        <li><a class="sideMenuItem"  id="sideMenuItem-11" href="{{ path('app_tache') }}">Taches</a></li>
+                    </ul>
+                </aside>
+                <!-- END SIDE MENU -->
+            </div>
+            <div class="column is-9">   
+        {% block body %}{% endblock %}
+                </div>
+         </div>
+    </div>
+</body>
+    <script>
+    //SideMenu
+   document.querySelectorAll('.sideMenuItem').forEach(link =>{
+   if(link.href === window.location.href){
+    link.classList.add("is-active");
+   }
+   })
+      
+    </script>
+</html>

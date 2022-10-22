@@ -1,0 +1,197 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block tile %}<title>Admin Dashboard</title> {% endblock %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <!-- Bulma Version 0.9.0-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/admin.css">
+</head>
+{% endblock %}
+{% block body %}
+            <!--BODY-->
+                <section class="hero is-info welcome is-small">
+                    <div class="hero-body">
+                        <div class="container">
+                            <h3 class="subtitle">
+                               {{ "now"|date("d/m/Y") }} 
+                            </h3>
+                            <h1 class="title">
+                                Admin Dashboard
+                            </h1>
+                            <h2 class="subtitle">
+                                Projet <b>n°12345</b>: Le nom du projet ici
+                            </h2>
+                        </div>
+                    </div>
+                </section>
+                <section class="info-tiles">
+                    <div class="tile is-ancestor has-text-centered">
+                        <div class="tile is-parent">
+                            <article class="tile is-child box">
+                                <p class="title">439k</p>
+                                <p class="subtitle">Budget</p>
+                                <progress class="progress is-link" value="100" max="100">30%</progress>
+                            </article>
+                        </div>
+                            <div class="tile is-parent">
+                            <article class="tile is-child box">
+                                <p class="title">52k</p>
+                                <p class="subtitle">Somme Dépensée</p>
+                            <progress class="progress is-warning" value="100" max="100">75%</progress>
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                            <article class="tile is-child box">
+                                <p class="title">125</p>
+                                <p class="subtitle">Taches Accomplies</p>
+                                <progress class="progress is-success" value="100" max="100">60%</progress>
+                            </article>
+                        </div>
+                            <div class="tile is-parent">
+                            <article class="tile is-child box">
+                                <p class="title">5</p>
+                                <p class="subtitle">Membres Equipe</p>
+                                <progress class="progress is-danger" value="100" max="100">90%</progress>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+                <div class="columns">
+                    <!--CHOSES-->
+                    <div class="column is-6">
+                    <div class="card events-card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Dernieres Taches accomplies
+                                </p>
+                            </header>
+                            <div class="card-table">
+                                <div class="content">
+                                    <table class="table is-fullwidth is-striped">
+                                        <tbody>
+                                            <tr>
+                                                <td width="10%"><img src="{{ asset('images/success-green-check-mark-icon.png')}}"></td>
+                                                <td>Fondation du premier rez de chaussé</td>
+                                                <td class="level-right">12/12/2022 12:25:52</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="10%"><img src="{{ asset('images/success-green-check-mark-icon.png')}}"></td>
+                                                <td>Fondation du premier rez de chaussé</td>
+                                                <td class="level-right">12/12/2022 12:25:52</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="10%"><img src="{{ asset('images/success-green-check-mark-icon.png')}}"></td>
+                                                <td>Fondation du rez de chaussé</td>
+                                                <td class="level-right">12/12/2022 12:25:52</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="10%"><img src="{{ asset('images/success-green-check-mark-icon.png')}}"></td>
+                                                <td>Fondation du premier rez de chaussé</td>
+                                                <td class="level-right">12/12/2022 12:25:52</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="10%"><img src="{{ asset('images/success-green-check-mark-icon.png')}}"></td>
+                                                <td>Installation des</td>
+                                                <td class="level-right">12/12/2022 12:25:52</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="10%"><img src="{{ asset('images/success-green-check-mark-icon.png')}}"></td>
+                                                <td>Fondation du premier rez de chaussé</td>
+                                                <td class="level-right">12/12/2022 12:25:52</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                                <a href="#" class="card-footer-item">Voir tout</a>
+                            </footer>
+                        </div>
+                    </div>
+                    <!--ENDCHOSES-->
+                    <!--EQUIPE-->
+                    <div class="column is-6">
+                        <div class="card events-card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Equipe
+                                </p>
+                            </header>
+                            <div class="card-table">
+                                <div class="content">
+                                    <table class="table is-fullwidth is-striped">
+                                        <tbody>
+                                            <tr>
+                                                <td width="10%"><img src="{{ asset('images/undraw_profile_1.svg') }}"></td>
+                                                <td>Soko Mamadou</td>
+                                                <td class="level-right"><button id="voirMembreEquipe" class="button is-small is-primary">Voir</button></td>
+                                            </tr>
+                                             <tr>
+                                                <td width="10%"><img src="{{ asset('images/undraw_profile_2.svg') }}"</td>
+                                                <td>Ba Amadou</td>
+                                                <td class="level-right"><button id="voirMembreEquipe" class="button is-small is-primary">Voir</button></td>
+                                            </tr>
+                                                                                        <tr>
+                                                <td width="10%"><img src="{{ asset('images/undraw_profile_3.svg') }}"</td>
+                                                <td>Ndiaye Francois</td>
+                                                <td class="level-right"><button id="voirMembreEquipe" class="button is-small is-primary">Voir</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                                <a href="#" class="card-footer-item">Voir tout</a>
+                            </footer>
+                        </div>
+                    </div>
+                    <!--  Modal membre equipe -->
+                        <div class="modal">
+                            <div class="modal-background"></div>
+                            <div class="modal-content has-background-white py-5 px-5">
+                                <h3 class="title mb-6"><i class="fa fa-user"></i> <span>Nom Prenom</span></h3>
+                                <div class="columns">
+                                <div class="column is-half">
+                                <p><b>Nom:</b> nom</p>
+                                <p><b>Prenom:</b> prenom</p>
+                                <p><b>Email:</b> emailUtilisateur@email.com</p>
+                                <p><b>Tel:</b> 77 123 45 67</p>
+                                </div>
+                                <div class="column is-half">
+                                <b>Roles: </b>
+                                <table>
+                                <tr>
+                                  <td>Admin</td>
+                                <tr>
+                                </table>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- End Modal membre equipe -->
+
+                    <!--END_EQUIPE-->
+
+                </div>
+            <!--ENDBODY-->
+            <script>
+            //modal
+             const voirButton = document.querySelector('#voirMembreEquipe');
+             const modalBg = document.querySelector('.modal-background');
+             const modal = document.querySelector('.modal');
+
+             voirButton.addEventListener('click',() => { 
+             modal.classList.add('is-active');
+             })
+
+             modalBg.addEventListener('click',() => { 
+             modal.classList.remove('is-active');
+             })
+            </script>
+{% endblock %}

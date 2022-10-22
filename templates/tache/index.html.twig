@@ -1,0 +1,143 @@
+{% extends 'base.html.twig' %}
+{% block head %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block tile %}<title>Taches</title> {% endblock %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <!-- Bulma Version 0.9.0-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/admin.css">
+</head>
+{% endblock %}
+{% block body %}
+                <section class="hero is-info welcome is-small">
+                    <div class="hero-body">
+                        <div class="container">
+                            <h3 class="subtitle">
+                               {{ "now"|date("d/m/Y") }} 
+                            </h3>
+                            <h1 class="title">
+                                Taches
+                            </h1>
+                            <h2 class="subtitle">
+                                Projet <b>n°12345</b>: Le nom du projet ici
+                            </h2>
+                        </div>
+                    </div>
+                </section>      
+                <br/>
+                <div class="columns">
+                    <!--  A faire  -->
+                   <div class="column is-one-third">
+                    <article class="message is-link">
+                                <div class="message-header">
+                                    <p>A faire</p>
+                                </div>
+                                <div class="message-body">
+                                    <div class="board-item">
+                                    <div class="board-item-content has-text-centered"><span>Les taches à faire</span></div>
+                                    </div>
+                                    <br/>
+                                   <div class="card">
+                                                <div class="card-table">
+                                                    <div class="content">
+                                                        <table class="table is-fullwidth is-striped">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>prepation su sol dopwejdpo dojwped opjdw  pjodqwo wn eo </td>
+                                                                    <td class="is-vcentered"><a id="" class="level-right button is-small is-success">Commencer</button></td>
+                                                                </tr>
+                                                                 <tr>
+                                                                    <td>mise en place des potaux</td>
+                                                                    <td class="is-vcentered"><a id="" class="level-right button is-small is-success">Commencer</button></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>cloulage</td>
+                                                                    <td class="is-vcentered"><a id="" class="level-right button is-small is-success">Commencer</button></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                   </div>
+                                </div>
+                            </article>
+                    </div>
+                    <!--ENDAFAIRE-->
+                    <!--ENCOURS-->
+                    <div class="column">
+                        <article class="message is-warning">
+                                <div class="message-header">
+                                    <p>En Cours</p>
+                                </div>
+                                <div class="message-body">
+                                    <div class="board-item">
+                                    <div class="board-item-content has-text-centered"><span>Les taches en cours</span></div>
+                                    </div>
+                                    <br/>
+                                   <div class="card">
+                                                <div class="card-table">
+                                                    <div class="content">
+                                                        <table class="table is-fullwidth is-striped">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>prepation su sol dopwejdpo dojwped opjdw  pjodqwo wn eo </td>
+                                                                    <td class="is-vcentered"><a id="" class="level-right button is-small is-info">Terminer</button></td>
+                                                                </tr>
+                                                                 <tr>
+                                                                    <td>mise en place des potaux</td>
+                                                                    <td class="is-vcentered"><a id="" class="level-right button is-small is-info">Terminer</button></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>cloulage</td>
+                                                                    <td class="is-vcentered"><a id="" class="level-right button is-small is-info">Terminer</button></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                   </div>
+                                </div>
+                            </article>
+                    </div>    
+                    <!-- EndEnCours -->
+                    <!--  TERMINE  -->
+                   <div class="column">
+                    <article class="message is-success">
+                                <div class="message-header text">
+                                    <p>Terminé</p>
+                                </div>
+                                <div class="message-body">
+                                    <div class="board-item">
+                                        <div class="board-item-content has-text-centered"><span>Les taches accomplies</span></div>
+                                    </div>
+                                    <br/>
+                                   <div class="card">
+                                                <div class="card-table">
+                                                    <div class="content">
+                                                        <table class="table is-fullwidth is-striped">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>prepation su sol dopwejdpo dojwped opjdw  pjodqwo wn eo </td>
+                                                                </tr>
+                                                                 <tr>
+                                                                    <td>mise en place des potaux</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>cloulage</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                   </div>
+                                </div>
+                            </article>
+                    </div>
+                    <!--EndTerminé-->
+                    
+                </div>
+{% endblock %}     
